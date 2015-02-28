@@ -27,7 +27,9 @@
     "gulp-watch": "^4.1.1",
     "gulp-webpack": "^1.2.0",
     "json-loader": "^0.5.1",
+    "lodash": "^3.3.1",
     "path": "^0.11.14",
+    "react-dnd": "^0.9.1",
     "util": "^0.10.3",
     "webpack": "^1.6.0"
   },

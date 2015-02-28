@@ -1,14 +1,11 @@
 import React from 'react';
-import ItemList from '../components/itemList.jsx';
+import WidgetContainer from '../components/widgetContainer.jsx';
 
 var Home = React.createClass({
 
   render() {
     return (
-      <div>
-        <h1>Home Area</h1>
-        <ItemList />
-      </div>
+      <WidgetContainer />
     );
   }
 
