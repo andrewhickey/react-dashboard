@@ -11,7 +11,8 @@ module.exports.development = {
     output: output,
     module : {
         loaders : [
-            { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' }
+            { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' },
+            { test: /\.json$/, loader: "json" }
         ]
     }
 };
@@ -22,7 +23,8 @@ module.exports.production = {
     output: output,
     module : {
         loaders : [
-            { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' }
+            { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' },
+            { test: /\.json$/, loader: "json" }
         ]
     }
 };

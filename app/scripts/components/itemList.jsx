@@ -1,5 +1,5 @@
 import React from 'react';
-import ItemStore from '../stores/itemStore';
+import stateTree from '../stateTree';
 import ItemActions from '../actions/itemActions';
 
 var ItemList = React.createClass({

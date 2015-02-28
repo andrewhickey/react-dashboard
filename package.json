@@ -9,6 +9,7 @@
     "reflux": "^0.2.5"
   },
   "devDependencies": {
+    "ajax": "0.0.4",
     "babel-core": "^4.0.1",
     "babel-loader": "^4.0.0",
     "baobab": "^0.3.2",
@@ -25,6 +26,7 @@
     "gulp-util": "^3.0.3",
     "gulp-watch": "^4.1.1",
     "gulp-webpack": "^1.2.0",
+    "json-loader": "^0.5.1",
     "path": "^0.11.14",
     "util": "^0.10.3",
     "webpack": "^1.6.0"
