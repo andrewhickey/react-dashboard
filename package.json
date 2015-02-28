@@ -1,0 +1,49 @@
+{
+  "name": "react-dashboard",
+  "version": "0.0.0",
+  "description": "Charting dashboard built with react.js",
+  "main": "main.js",
+  "dependencies": {
+    "react": "^0.12.2",
+    "react-router": "^0.12.0",
+    "reflux": "^0.2.5"
+  },
+  "devDependencies": {
+    "babel-core": "^4.0.1",
+    "babel-loader": "^4.0.0",
+    "baobab": "^0.3.2",
+    "del": "^1.1.1",
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.1.0",
+    "gulp-concat": "^2.5.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-livereload": "^3.7.0",
+    "gulp-load-plugins": "^0.8.0",
+    "gulp-size": "^1.2.0",
+    "gulp-stylus": "^2.0.1",
+    "gulp-uglifyjs": "^0.6.0",
+    "gulp-util": "^3.0.3",
+    "gulp-watch": "^4.1.1",
+    "gulp-webpack": "^1.2.0",
+    "path": "^0.11.14",
+    "util": "^0.10.3",
+    "webpack": "^1.6.0"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:andrewhickey/react-dashboard.git"
+  },
+  "keywords": [
+    "react",
+    "dashboard"
+  ],
+  "author": "andrewhickey@live.co.uk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrewhickey/react-dashboard/issues"
+  },
+  "homepage": "https://github.com/andrewhickey/react-dashboard"
+}
