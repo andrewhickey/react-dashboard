@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import stateTree from '../../stateTree.js';
 import React from 'react';
-import WidgetPreview from '../widgets/widgetPreview.jsx';
+import WidgetPreview from '../widgets/WidgetPreview.jsx';
 
 var WidgetsPanel = React.createClass({
   mixins: [stateTree.mixin],

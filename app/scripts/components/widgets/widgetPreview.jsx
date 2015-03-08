@@ -25,10 +25,16 @@ var WidgetPreview = React.createClass({
   },
 
   render() {
+    const { name } = this.props;
+    const { isDragging } = this.getDragState(DRAGGABLE_TYPES.WIDGET);
+    const opacity = isDragging ? 0.4 : 1;
+
     return (
       <div {...this.dragSourceFor(DRAGGABLE_TYPES.WIDGET)}
-        className="widgetpreview">
-        {this.props.widget.name}
+        className="widgetpreview"
+        style={{"opacity": opacity}}
+      >
+        {this.props.widget.type}
       </div>
     );
   }

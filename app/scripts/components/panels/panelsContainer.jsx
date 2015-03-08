@@ -1,5 +1,6 @@
 import React from 'react';
-import WidgetsPanel from './widgetsPanel.jsx';
+import WidgetsPanel from './WidgetsPanel.jsx';
+import SettingsPanel from './SettingsPanel.jsx';
 
 var PanelsContainer = React.createClass({
 
@@ -7,6 +8,7 @@ var PanelsContainer = React.createClass({
     return (
       <div>
         <WidgetsPanel />
+        <SettingsPanel />
       </div>
     );
   }

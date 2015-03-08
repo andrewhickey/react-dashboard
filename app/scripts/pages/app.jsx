@@ -1,7 +1,7 @@
 import React from 'react';
 import { RouteHandler } from 'react-router';
-import Header from '../components/header.jsx'
-import PanelsContainer from '../components/panels/panelsContainer.jsx'
+import Header from '../components/Header.jsx'
+import PanelsContainer from '../components/panels/PanelsContainer.jsx'
 
 var App = React.createClass({
   

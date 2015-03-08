@@ -1,9 +1,10 @@
-var stateTree = require('../stateTree');
-var ajax = require('ajax');
+import stateTree from "../stateTree";
+import ajax from 'ajax';
 
 module.exports = {
-  showOnlyProductsInStock: function () {
-    stateTree.set('onlyProductsInStock', true);
+  addWidgetToDashboard: function (dashboard, widget) {
+    var dashboard_widgets = stateTree.get(['dashboards', dashboard.id, 'widgets']);
+    dashboard_widgets.push(widget);
   },
   showAllProducts: function () {
     stateTree.set('onlyProductsInStock', false);

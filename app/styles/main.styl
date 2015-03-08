@@ -1,6 +1,8 @@
+@import 'shared'
+@import 'colours'
 @import 'normalize'
 @import 'helper'
-@import 'panel'
+@import 'dashboard'
 
 /* variables */
 $lightgrey = #999
@@ -36,10 +38,10 @@ body
   color: $black
   font-size: 1em
   line-height: 1.5
+  background-color $color5
   
 header
-  background: $grey
-  color:$black
+  base()
   padding: 1em
   
   nav
