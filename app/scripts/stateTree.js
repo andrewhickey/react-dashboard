@@ -21,7 +21,7 @@ var defaults = {
     }
   },
   ui: {
-    is_widgets_open: true,
+    is_widgets_open: false,
     is_settings_open: false
   },
   settings: {

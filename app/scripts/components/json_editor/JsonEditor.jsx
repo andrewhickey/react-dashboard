@@ -1,20 +1,16 @@
 import React from 'react';
 import _ from "lodash";
-import JsonEditorMixin from "./JsonEditorMixin.jsx";
+import Attribute from "./Attribute.jsx";
 
 const JsonEditor = React.createClass({
-  mixins: [JsonEditorMixin],
   render() {
     const cursor = this.props.cursor;
-
-    const attributes = _.map(cursor.get(), function(attribute, index){
-      return this.createNodeFromAttribute(attribute, index);
-    },this);
-
+    const attribute = _.cloneDeep(cursor.get()) 
+    
     return (
       <div>
         <pre>{JSON.stringify(cursor.get())}</pre>
-        <div>{attributes}</div>
+        <div><Attribute attribute={attribute} /></div>
       </div>
     );
   }
