@@ -13,7 +13,7 @@ const JsonEditor = React.createClass({
     return (
       <div>
         <pre>{JSON.stringify(cursor.get())}</pre>
-        <div><Attribute attribute={attribute} onSave={this.logChange}/></div>
+        <div><Attribute attribute={attribute} onChange={this.logChange} onSave={this.logChange}/></div>
       </div>
     );
   }
