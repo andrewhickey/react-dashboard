@@ -1,5 +1,6 @@
 import React from 'react/addons';
 import _ from "lodash";
+import AddAttributeForm from "./AddAttributeForm.jsx";
 
 // TODO bubble changes only on end of edit
 
@@ -154,13 +155,7 @@ var Attribute = React.createClass({
       return (
         <span>
           <a href="#" onClick={this.toggleEditing}> - </a>
-          <ul>
-            <li><a href="#" onClick={this.addAttribute.bind(this, "")} >String</a></li>
-            <li><a href="#" onClick={this.addAttribute.bind(this, true)} >Boolean</a></li>
-            <li><a href="#" onClick={this.addAttribute.bind(this, 0)} >Number</a></li>
-            <li><a href="#" onClick={this.addAttribute.bind(this, {})} >Object</a></li>
-            <li><a href="#" onClick={this.addAttribute.bind(this, [])} >Array</a></li>
-          </ul>
+          <AddAttributeForm />
         </span>
       );
     } else {
