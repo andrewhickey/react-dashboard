@@ -28,17 +28,23 @@ var Attribute = React.createClass({
     this.toggleEditing();
   },
 
+  handleSubmitForKey(key, e) {
+    e.preventDefault();
+    var new_key = this.refs[key].getDOMNode().value.trim();
+    var newAttribute = React.addons.update(this.state.attribute, {});
+    newAttribute[ new_key ] = newAttribute[ key ];
+    delete newAttribute[ key ];
+    this.toggleEditing();
+    this.bubbleChange(newAttribute);
+  },
+
   handleChange(e) {
     e.preventDefault();
     this.props.onBubble(e.target.value);
   },
 
-  handleKeyChange(old_key, e) {
-    e.preventDefault();
-    var newAttribute = React.addons.update(this.state.attribute, {});
-    newAttribute[ e.target.value ] = newAttribute[ old_key ];
-    delete newAttribute[ old_key ];
-    this.bubbleChange(newAttribute);
+  handleChangeForKey(old_key, e) {
+    
   },
 
   handleToggle(e) {
@@ -185,10 +191,9 @@ var Attribute = React.createClass({
     var type = Object.prototype.toString.call(this.state.attribute );
     if (type === "[object Object]") {
       if( this.state.is_editing_keys[key] ) {
-        console.log(key);
         return (
-          <form className={"attribute-form"} onSubmit={this.toggleEditingForKey.bind(this,key)}>
-            <input type="text" value={key} onChange={this.handleKeyChange.bind(this,key)} />
+          <form className={"attribute-form"} onSubmit={this.handleSubmitForKey.bind(this,key)} >
+            <input type="text" defaultValue={key} ref={key} />
           </form>
         );
       } else {
