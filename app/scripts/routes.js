@@ -5,10 +5,13 @@ import App from './pages/app.jsx';
 import Home from './pages/home.jsx';
 import Reports from './pages/reports.jsx';
 import NotFound from './pages/notFound.jsx';
+import ReportEditor from './pages/ReportEditor.jsx';
 
 var routes = (
   <Route name="app" path="/" handler={ App }>
-    <Route name="reports" handler={ Reports } />
+    <Route name="reports" handler={ Reports }>
+    	<Route name="reports.id" path=":id" handler={ ReportEditor } />
+    </Route>
     <Route name="home" handler={ Home } />
     <DefaultRoute handler={ Home } />
     <NotFoundRoute handler={ NotFound } />

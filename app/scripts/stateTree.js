@@ -25,8 +25,21 @@ var defaults = {
     is_settings_open: false
   },
   settings: {
+    lrs_uri: "http://lrs.com",
     lrs_username: "d561981e8070409d45e2600473d6ec4c35104d3f",
     lrs_password: "3821bf6d1b55c6b8c2decf46c6e2b5c1d7223d7d"
+  },
+  reports: {
+    1: {
+      id: 1,
+      name: "report_1",
+      query: {}
+    },
+    2: {
+      id: 2,
+      name: "report_2",
+      query: {}
+    }
   },
   test_tree: {
     is_true: true,

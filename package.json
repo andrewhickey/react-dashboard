@@ -27,6 +27,7 @@
     "gulp-util": "^3.0.3",
     "gulp-watch": "^4.1.1",
     "gulp-webpack": "^1.2.0",
+    "immutable": "^3.6.4",
     "json-loader": "^0.5.1",
     "lodash": "^3.3.1",
     "path": "^0.11.14",

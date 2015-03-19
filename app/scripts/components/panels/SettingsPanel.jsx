@@ -13,6 +13,10 @@ var WidgetsPanel = React.createClass({
 
   },
 
+  updateSetting(setting_name, e) {
+
+  },
+
   render() {
     var classes = React.addons.classSet({
       panel: true,
@@ -22,11 +26,15 @@ var WidgetsPanel = React.createClass({
       <div className={classes}>
         <form onSubmit={this._onSubmit}>
           <div>
-            <input type="text" id="username-input" value={this.state.cursors.settings.lrs_username}/>
+            <input type="text" id="uri-input" value={this.state.cursors.settings.lrs_uri} onChange={this.updateSetting}/>
             <label htmlFor="username-input">LRS Username</label>
           </div>
           <div>
-            <input type="password" id="password-input" value={this.state.cursors.settings.lrs_password}/>
+            <input type="text" id="username-input" value={this.state.cursors.settings.lrs_username} onChange={this.updateSetting}/>
+            <label htmlFor="username-input">LRS Username</label>
+          </div>
+          <div>
+            <input type="password" id="password-input" value={this.state.cursors.settings.lrs_password} onChange={this.updateSetting}/>
             <label htmlFor="password-input">LRS Password</label>
           </div>
         </form>
