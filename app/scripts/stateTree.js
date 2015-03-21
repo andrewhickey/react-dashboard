@@ -11,6 +11,9 @@ var defaults = {
     },
     pie: {
       type: 'pie'
+    },
+    radar: {
+      type: 'radar'
     }
   },
   dashboards: {
@@ -22,12 +25,18 @@ var defaults = {
   },
   ui: {
     is_widgets_open: false,
-    is_settings_open: false
+    is_settings_open: false,
+    reports: {
+      active_report: null,
+      editing_mode: 1
+    }
   },
   settings: {
-    lrs_uri: "http://lrs.com",
-    lrs_username: "d561981e8070409d45e2600473d6ec4c35104d3f",
-    lrs_password: "3821bf6d1b55c6b8c2decf46c6e2b5c1d7223d7d"
+    lrs : {
+      uri: "http://lrs.learninglocker.net",
+      username: "d561981e8070409d45e2600473d6ec4c35104d3f",
+      password: "3821bf6d1b55c6b8c2decf46c6e2b5c1d7223d7d"  
+    }
   },
   reports: {
     1: {
@@ -38,29 +47,23 @@ var defaults = {
     2: {
       id: 2,
       name: "report_2",
-      query: {}
+      query: [
+        {
+          "$match": {
+            "statement.timestamp": {
+              "$gt":"2013-01-01T00:00",
+              "$lt":"2015-06-02T00:00"
+            }
+          }
+        }
+      ],
+      statements: [
+      ]
     }
-  },
-  test_tree: {
-    is_true: true,
-    number: 123,
-    string_val: 'just some yarn',
-    lunch: {
-      type: 'soup'
-    },
-    dogs: [
-      {
-        name: "manny",
-        breed: "beagle"
-      },
-      {
-        name: "jasper",
-        breed: "spaniel"
-      }
-    ],
-
   }
 };
+
+
 //JSON.parse(localStorage.state) || 
 var state = defaults;
 

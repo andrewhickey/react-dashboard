@@ -1,12 +1,12 @@
-import _ from 'lodash';
-import stateTree from '../../stateTree.js';
-import React from 'react';
+import _ from "lodash";
+import stateTree from "../../stateTree.js";
+import React from "react";
 
 var WidgetsPanel = React.createClass({
   mixins: [stateTree.mixin],
   cursors: {
-    open: ['ui', 'is_settings_open'],
-    settings: ['settings']
+    open: ["ui", "is_settings_open"],
+    settings: ["settings", "lrs"]
   },
   
   _onSubmit(e) {
@@ -26,15 +26,15 @@ var WidgetsPanel = React.createClass({
       <div className={classes}>
         <form onSubmit={this._onSubmit}>
           <div>
-            <input type="text" id="uri-input" value={this.state.cursors.settings.lrs_uri} onChange={this.updateSetting}/>
+            <input type="text" id="uri-input" value={this.state.cursors.settings.uri} onChange={this.updateSetting}/>
+            <label htmlFor="uri-input">LRS Uri</label>
+          </div>
+          <div>
+            <input type="text" id="username-input" value={this.state.cursors.settings.username} onChange={this.updateSetting}/>
             <label htmlFor="username-input">LRS Username</label>
           </div>
           <div>
-            <input type="text" id="username-input" value={this.state.cursors.settings.lrs_username} onChange={this.updateSetting}/>
-            <label htmlFor="username-input">LRS Username</label>
-          </div>
-          <div>
-            <input type="password" id="password-input" value={this.state.cursors.settings.lrs_password} onChange={this.updateSetting}/>
+            <input type="password" id="password-input" value={this.state.cursors.settings.password} onChange={this.updateSetting}/>
             <label htmlFor="password-input">LRS Password</label>
           </div>
         </form>

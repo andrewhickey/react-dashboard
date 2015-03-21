@@ -22,6 +22,10 @@ var Widget = React.createClass({
         component = <div className="widget">PieChart</div>;
         break;
 
+      case "radar":
+        component = <div className="radar">RadarChart</div>;
+        break;
+
       default:
         component = <div className="widget">Widget type not found!</div>;
         break;

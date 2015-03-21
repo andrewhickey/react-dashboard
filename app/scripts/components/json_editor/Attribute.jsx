@@ -35,7 +35,7 @@ var Attribute = React.createClass({
     var newAttribute = React.addons.update(this.state.attribute, {});
     newAttribute[ new_key ] = newAttribute[ key ];
     delete newAttribute[ key ];
-    this.toggleEditing();
+    this.disableEditingForKey(key);
     this.bubbleChange(newAttribute);
   },
 
@@ -57,15 +57,20 @@ var Attribute = React.createClass({
     this.setState({is_editing: !this.state.is_editing});
   },
 
-  toggleEditingForKey(key, e) {
+  disableEditingForKey(key, e) {
     if(e) e.preventDefault();
     var stateobj = {is_editing_keys: {}};
-    stateobj.is_editing_keys[key] = !this.state.is_editing_keys[key];
+    stateobj.is_editing_keys[key] = false;
+    this.setState(stateobj);
+  },
+  enableEditingForKey(key, e) {
+    if(e) e.preventDefault();
+    var stateobj = {is_editing_keys: {}};
+    stateobj.is_editing_keys[key] = true;
     this.setState(stateobj);
   },
 
   addAttribute(new_attr, new_key, e) {
-    console.log('test');
     if(e) e.preventDefault();
     var newAttribute = React.addons.update(this.state.attribute, {});
     var type = Object.prototype.toString.call(this.state.attribute );
@@ -117,19 +122,19 @@ var Attribute = React.createClass({
     switch( type ) {
       case "[object Boolean]":
         if (this.state.is_editing) {
-          return <form className={"attribute-form"} onSubmit={this.handleSubmit}><input autoFocus type="checkbox" checked={object} onChange={this.handleToggle} /></form>;
+          return <form className={"attribute-form"} onSubmit={this.handleSubmit}><input onBlur={this.handleSubmit} autoFocus type="checkbox" checked={object} onChange={this.handleToggle} /></form>;
         } else {
           return <span onDoubleClick={this.toggleEditing}>{object.toString()}</span>;
         }
       case "[object Number]":
         if (this.state.is_editing) {
-          return <form className={"attribute-form"} onSubmit={this.handleSubmit}><input autoFocus type="number" value={object} onChange={this.handleChange} /></form>;
+          return <form className={"attribute-form"} onSubmit={this.handleSubmit}><input onBlur={this.handleSubmit} autoFocus type="number" value={object} onChange={this.handleChange} /></form>;
         } else {
           return <span onDoubleClick={this.toggleEditing}>{object.toString()}</span>;
         }
       case "[object String]":
         if (this.state.is_editing) {
-          return <form className={"attribute-form"} onSubmit={this.handleSubmit}><input autoFocus type="text" value={object} onChange={this.handleChange} /></form>;
+          return <form className={"attribute-form"} onSubmit={this.handleSubmit}><input onBlur={this.handleSubmit} autoFocus type="text" value={object} onChange={this.handleChange} /></form>;
         } else {
           return <span onDoubleClick={this.toggleEditing}>{object.toString()}</span>;
         }
@@ -189,11 +194,11 @@ var Attribute = React.createClass({
       if( this.state.is_editing_keys[key] ) {
         return (
           <form className={"attribute-form"} onSubmit={this.handleSubmitForKey.bind(this,key)} >
-            <input autoFocus type="text" defaultValue={key} ref={key} />
+            <input  onBlur={this.disableEditingForKey.bind(this, key)} autoFocus type="text" defaultValue={key} ref={key} />
           </form>
         );
       } else {
-        return <span onDoubleClick={this.toggleEditingForKey.bind(this, key)}>{key}: </span>;
+        return <span onDoubleClick={this.enableEditingForKey.bind(this, key)}>{key}: </span>;
       }
     } else {
       return <span>{key}: </span>;

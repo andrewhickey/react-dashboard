@@ -13,6 +13,7 @@
     "babel-core": "^4.0.1",
     "babel-loader": "^4.0.0",
     "baobab": "^0.3.2",
+    "browser-request": "^0.3.3",
     "del": "^1.1.1",
     "font-awesome": "^4.3.0",
     "gulp": "^3.8.11",

@@ -2,6 +2,7 @@ import stateTree from "../stateTree";
 import ajax from "ajax";
 
 module.exports = {
+  /** global **/
   toggleWidgetsPanel: function () {
     var cursor = stateTree.select('ui', 'is_widgets_open');
     cursor.update({
@@ -14,4 +15,12 @@ module.exports = {
       $set: !cursor.get()
     });
   },
+
+  /** reports **/
+  setActiveReport: function(reportId) {
+    var cursor = stateTree.select("ui", "reports", "active_report");
+    cursor.update({
+      $set: reportId
+    });
+  }
 };

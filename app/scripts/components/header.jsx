@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import UiActions from '../actions/uiActions';
+import UiActions from '../actions/UiActions';
 
 var Header = React.createClass({
   _openWidgetsPanel: function(e) {

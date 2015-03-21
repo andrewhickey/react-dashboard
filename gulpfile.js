@@ -58,6 +58,13 @@ gulp.task("images", function(cb) {
     .pipe(gulp.dest(dist + "images/"));
 });
 
+// copy images
+gulp.task("fonts", function(cb) {
+  return gulp.src(app + "fonts/**/*.{eot,svg,ttf,woff,woff2,otf}")
+    .pipe($.size({ title : "fonts" }))
+    .pipe(gulp.dest(dist + "fonts/"));
+});
+
 gulp.task("styles",function(cb) {
   // convert stylus to css
   return gulp.src(app + "styles/main.styl")
@@ -91,5 +98,5 @@ gulp.task("default", ["build", "serve", "watch"]);
 
 // waits until clean is finished then builds the project
 gulp.task("build", ["clean"], function(){
-  gulp.start(["images", "html", "scripts", "styles"]);
+  gulp.start(["images", "fonts", "html", "scripts", "styles"]);
 });

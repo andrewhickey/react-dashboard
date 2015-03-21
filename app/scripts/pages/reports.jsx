@@ -1,26 +1,33 @@
 import _ from "lodash";
 import stateTree from "../stateTree";
 import React from 'react';
-import JsonEditor from "../components/json_editor/JsonEditor.jsx";
-import { RouteHandler } from 'react-router';
+import { RouteHandler, Link } from 'react-router';
+
+import UiActions from "../actions/UiActions";
+import ReportEditor from "../components/reports/ReportEditor.jsx";
 
 var Info = React.createClass({
   mixins: [stateTree.mixin],
 
   cursors: {
-    reports: ['reports']
+    reports: ['reports'],
+    ui: ["ui", "reports"]
+  },
+
+  selectReport(reportId, e) {
+    UiActions.setActiveReport(reportId);
   },
 
   render() {
-    
-    const report_list = _.map(this.state.cursors.reports, function(report, key) {
-      return <li key={key}>{report.name}</li>;
-    });
+
+    const reportList = _.map(this.state.cursors.reports, function(report, key) {
+      return <li key={key} onClick={this.selectReport}><Link to="reports.id" params={{reportId: report.id}}>{report.name}</Link></li>;
+    }.bind(this));
 
     return (
       <div>
         <ul>
-          {report_list}
+          {reportList}
         </ul>
         <RouteHandler />
       </div>
