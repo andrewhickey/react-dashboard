@@ -194,7 +194,7 @@ var Attribute = React.createClass({
       if( this.state.is_editing_keys[key] ) {
         return (
           <form className={"attribute-form"} onSubmit={this.handleSubmitForKey.bind(this,key)} >
-            <input  onBlur={this.disableEditingForKey.bind(this, key)} autoFocus type="text" defaultValue={key} ref={key} />
+            <input  onBlur={this.handleSubmitForKey.bind(this, key)} autoFocus type="text" defaultValue={key} ref={key} />
           </form>
         );
       } else {

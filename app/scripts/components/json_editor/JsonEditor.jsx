@@ -10,6 +10,11 @@ const JsonEditor = React.createClass({
       attribute: _.cloneDeep(this.props.cursor.get())
     }
   },
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      attribute: _.cloneDeep(nextProps.cursor.get())
+    });
+  },
   logChange(attribute) {
     this.setState({
       attribute: attribute,

@@ -42,7 +42,16 @@ var defaults = {
     1: {
       id: 1,
       name: "report_1",
-      query: {}
+      query: [
+        {
+          "$match": {
+            "statement.timestamp": {
+              "$gt":"2013-01-01T00:00",
+              "$lt":"2015-06-02T00:00"
+            }
+          }
+        }
+      ]
     },
     2: {
       id: 2,
