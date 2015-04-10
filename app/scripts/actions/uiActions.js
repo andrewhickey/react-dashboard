@@ -17,10 +17,17 @@ module.exports = {
   },
 
   /** reports **/
-  setActiveReport: function(reportId) {
+  setActiveReport(reportId) {
     var cursor = stateTree.select("ui", "reports", "active_report");
     cursor.update({
       $set: reportId
+    });
+  },
+
+  setReportEditingMode(editingMode) {
+    var cursor = stateTree.select("ui", "reports", "editing_mode");
+    cursor.update({
+      $set: editingMode
     });
   }
 };

@@ -32,11 +32,14 @@ var Attribute = React.createClass({
   handleSubmitForKey(key, e) {
     e.preventDefault();
     var new_key = this.refs[key].getDOMNode().value.trim();
-    var newAttribute = React.addons.update(this.state.attribute, {});
-    newAttribute[ new_key ] = newAttribute[ key ];
-    delete newAttribute[ key ];
+    if( new_key !== key ) {
+      var newAttribute = React.addons.update(this.state.attribute, {});
+      newAttribute[ new_key ] = newAttribute[ key ];
+      delete newAttribute[ key ];
+      
+      this.bubbleChange(newAttribute);
+    }
     this.disableEditingForKey(key);
-    this.bubbleChange(newAttribute);
   },
 
   handleChange(e) {

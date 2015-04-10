@@ -1,30 +1,40 @@
+// TODO remove has_changes attribute, use immutable data to check
+
 import React from 'react';
 import _ from "lodash";
-import Attribute from "./Attribute.jsx";
-import ReportActions from "../../actions/ReportActions";
+import Attribute from "../../json_editor/Attribute.jsx";
+import ReportActions from "../../../actions/ReportActions";
 
 const JsonEditor = React.createClass({
   getInitialState() {
     return {
       has_changes: false,
-      attribute: _.cloneDeep(this.props.cursor.get())
+      attribute: JSON.stringify(this.props.cursor.get(), null, 2)
     }
   },
   componentWillReceiveProps(nextProps) {
     this.setState({
-      attribute: _.cloneDeep(nextProps.cursor.get())
+      attribute: JSON.stringify(nextProps.cursor.get(), null, 2),
+      has_changes: false
     });
   },
-  logChange(attribute) {
+  onQueryChange(e) {
+    if(e) e.preventDefault();
+
     this.setState({
-      attribute: attribute,
+      attribute: e.target.value,
       has_changes: true
     });
   },
   saveChanges(e) {
     if(e) e.preventDefault();
-    this.setState({has_changes: false});
-    ReportActions.updateReport(this.props.cursor, this.state.attribute)
+    try {
+      var json = JSON.parse(this.state.attribute);
+      this.setState({has_changes: false});
+      ReportActions.updateReport(this.props.cursor, json)
+    } catch(e){
+      console.log(e);
+    }
   },
   cancelChanges(e) {
     if(e) e.preventDefault();
@@ -38,10 +48,14 @@ const JsonEditor = React.createClass({
         <button onClick={this.cancelChanges}>Cancel changes</button>
       </form>
     );
+
     return (
       <div>
-        <pre>{JSON.stringify(this.props.cursor.get())}</pre>
-        <div><Attribute attribute={this.state.attribute} onChange={this.logChange} /></div>
+        <textarea
+          style={{"width":"100%", "height":"350px"}}
+          value={this.state.attribute} 
+          onChange={this.onQueryChange}
+        />
         {save_form}
       </div>
     );
