@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 import UiActions from '../actions/UiActions';
 
 var Header = React.createClass({
@@ -20,8 +19,8 @@ var Header = React.createClass({
         <nav className="clearfix">
           <div className="nav-item"><a href='#' onClick={this._openWidgetsPanel}>Widgets</a></div>
           <div className="nav-item"><a href='#' onClick={this._openSettingsPanel}>Settings</a></div>
-          <div className="nav-item"><Link to='home'>Home</Link></div>
-          <div className="nav-item"><Link to='reports'>Reports</Link></div>
+          <div className="nav-item"><a>Home</a></div>
+          <div className="nav-item"><a>Reports</a></div>
         </nav>
       </header>
     );

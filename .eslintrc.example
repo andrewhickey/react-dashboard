@@ -1,0 +1,19 @@
+{
+  "env": {
+    "browser": true,
+    "amd": true,
+    "es6": true,
+    "mocha": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "strict": 1,
+    "comma-dangle": [2, "always-multiline"],
+    "quotes": "single",
+    "no-underscore-dangle": 0,
+  },
+  "globals": {
+    "expect": true,
+  },
+}

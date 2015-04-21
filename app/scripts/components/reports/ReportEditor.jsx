@@ -6,7 +6,7 @@ import JsonEditor from "./query_editors/JsonEditor.jsx";
 import RawEditor from "./query_editors/RawEditor.jsx";
 
 import ReportActions from "../../actions/ReportActions";
-import UIActions from "../../actions/uiActions";
+import UIActions from "../../actions/UiActions";
 
 var Info = React.createClass({
   mixins: [stateTree.mixin, State],
