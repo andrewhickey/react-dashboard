@@ -11,7 +11,7 @@ require('../styles/main.sass');
 
 import {Root} from 'baobab-react/wrappers';
 import React from 'react';
-import Application from './pages/app';
+import Application from './pages/App';
 import stateTree from './stateTree';
 
 window.addEventListener("beforeunload", function(e){

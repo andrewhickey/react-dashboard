@@ -33,9 +33,9 @@ var defaults = {
   },
   settings: {
     lrs : {
-      uri: "http://lrs.learninglocker.net",
-      username: "d561981e8070409d45e2600473d6ec4c35104d3f",
-      password: "3821bf6d1b55c6b8c2decf46c6e2b5c1d7223d7d"  
+      uri: "http://staging.learninglocker.net",
+      username: "7e871e4fcfe41246501905dd7ed1992d9d287da0",
+      password: "1b9092d81f553bae1d4feb4726c1573dfd87c647"  
     }
   },
   reports: {
@@ -76,10 +76,6 @@ var defaults = {
 //JSON.parse(localStorage.state) || 
 var state = defaults;
 
-var stateTree = new Baobab(
-  state, {
-    mixins: [ReactAddons.PureRenderMixin],
-    shiftReferences: true
-  });
+var stateTree = new Baobab(state);
 
 module.exports = stateTree;

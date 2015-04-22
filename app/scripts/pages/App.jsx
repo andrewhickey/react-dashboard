@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Header from '../components/Header.jsx'
 import PanelsContainer from '../components/panels/PanelsContainer.jsx'
 
-var App = React.createClass({
+class App extends Component{
   
   render() {
+    console.log(this.context);
     return (
       <div className="app-container">
         <Header />
@@ -16,6 +17,6 @@ var App = React.createClass({
     );
   }
   
-});
+}
 
 module.exports = App;

@@ -26,8 +26,10 @@ class WidgetsPanel extends Component {
 
 class WidgetsPanelContainer extends Component {
   render() {
+    console.log(this.context);
     return (
-      <Branch cursors={{
+      <Branch 
+       cursors={{
         open: ['ui', 'is_widgets_open'],
         widgets: ['widgets']
       }}>
