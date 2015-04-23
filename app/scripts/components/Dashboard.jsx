@@ -8,7 +8,6 @@ import Widget from "./widgets/Widget.jsx";
 const widgetPreviewTarget = {
   drop(props, monitor) {
     const {widget} = monitor.getItem();
-    console.log('You dropped ' + widget.type + '!')
     WidgetActions.addWidgetToDashboard(props.dashboard, widget);
   }
 }
@@ -23,6 +22,7 @@ const widgetPreviewTarget = {
     canDrop: widgetPreviewTarget.canDrop()
   })
 )
+
 export default class Dashboard extends Component {
 
   render() {

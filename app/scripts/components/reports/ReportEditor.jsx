@@ -1,6 +1,5 @@
-import stateTree from "../../stateTree";
 import React from 'react';
-import { State } from 'react-router';
+import {branch} from '../baobab/higher-order';
 
 import JsonEditor from "./query_editors/JsonEditor.jsx";
 import RawEditor from "./query_editors/RawEditor.jsx";
@@ -8,19 +7,13 @@ import RawEditor from "./query_editors/RawEditor.jsx";
 import ReportActions from "../../actions/ReportActions";
 import UIActions from "../../actions/UiActions";
 
-var Info = React.createClass({
-  mixins: [stateTree.mixin, State],
-  cursors: {
-    reports: ["reports"],
-    ui: ["ui","reports"]
-  },
+var ReportEditor = React.createClass({
   fetchStatements(e) {
     if(e) e.preventDefault();
     ReportActions.fetchStatementsForReport(this.getParams().reportId);
   },
   setEditMode(e) {
     if(e) e.preventDefault();
-    console.log('test');
     UIActions.setReportEditingMode(e.target.value);
   },
   getEditPanel(editingMode, reportCursor) {
@@ -47,11 +40,12 @@ var Info = React.createClass({
   },
 
   render() {
+    const { ui, report } = this.props;
     const reportId = parseInt(this.getParams().reportId);
-    const reportCursor = this.cursors.reports.select(reportId);
+    const reportCursor = reports.select(reportId);
     const report = reportCursor.get();
     
-    const editingMode = parseInt(this.cursors.ui.get().editing_mode);
+    const editingMode = parseInt(ui.get().editing_mode);
     const editPanel = this.getEditPanel(editingMode, reportCursor);
     
     const statements = _.map(report.statements, function(statement){
@@ -73,4 +67,9 @@ var Info = React.createClass({
   }
 });
 
-module.exports = Info;
+module.exports = branch(ReportEditor, {
+  cursors: {
+    reports: ["reports"],
+    ui: ["ui","reports"]
+  }
+});

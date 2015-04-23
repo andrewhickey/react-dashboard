@@ -15,6 +15,12 @@ module.exports = {
       $set: !cursor.get()
     });
   },
+  gotoPage: function(page) {
+    var cursor = stateTree.select('ui', 'current_page');
+    cursor.update({
+      $set: page
+    });
+  },
 
   /** reports **/
   setActiveReport(reportId) {

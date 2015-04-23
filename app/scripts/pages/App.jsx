@@ -5,7 +5,7 @@ import HTML5Backend from 'react-dnd/modules/backends/HTML5';
 import Header from '../components/Header.jsx';
 import PanelsContainer from '../components/panels/PanelsContainer.jsx';
 import Home from './Home';
-//import Reports from './Reports';
+import Reports from './Reports';
 
 @configureDragDropContext(HTML5Backend)
 export default class App extends Component{
@@ -28,7 +28,7 @@ export default class App extends Component{
     switch(this.props.current_page) {
       
       case "home": return <Home />;
-      case "reports": return null;
+      case "reports": return <Reports />;
 
     }
   }
