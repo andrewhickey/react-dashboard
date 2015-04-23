@@ -1,45 +1,51 @@
-import React from 'react';
-import { DragDropMixin } from 'react-dnd';
+import React, { Component, PropTypes } from 'react';
+import { configureDragDrop } from 'react-dnd';
 import { DRAGGABLE_TYPES } from '../../constants';
-import { PropTypes } from 'react';
 
-var WidgetPreview = React.createClass({
-  mixins: [DragDropMixin],
-
-  propTypes: {
-    widget: PropTypes.object.isRequired
+const widgetPreviewSource = {
+  beginDrag(props) {
+    return {
+      widget: props.widget
+    };
   },
+}
 
-  statics: {
-    configureDragDrop(register) {
-      register(DRAGGABLE_TYPES.WIDGET, {
-        dragSource: {
-          beginDrag(component) {
-            return {
-              item: component.props.widget
-            }
-          }
-        }
-      });
-    }
-  },
+@configureDragDrop(
+
+  register =>
+    register.dragSource(DRAGGABLE_TYPES.WIDGET, widgetPreviewSource),
+
+  widgetPreviewSource => ({
+    connectDragSource: widgetPreviewSource.connect(),
+    isDragging: widgetPreviewSource.isDragging()
+  })
+
+)
+
+export default class WidgetPreview extends Component {
+
+  static propTypes = {
+    connectDragSource: PropTypes.func.isRequired,
+    widget: PropTypes.object.isRequired,
+    isDragging: PropTypes.bool.isRequired
+  };
 
   render() {
-    const { name } = this.props;
-    const { isDragging } = this.getDragState(DRAGGABLE_TYPES.WIDGET);
+    const { widget, isDragging, connectDragSource  } = this.props;
     const opacity = isDragging ? 0.4 : 1;
     const icon = this.getIcon();
 
     return (
-      <div {...this.dragSourceFor(DRAGGABLE_TYPES.WIDGET)}
+      <div 
+        ref={connectDragSource}
         className="widgetpreview"
         style={{"opacity": opacity}}
       >
         {icon}
-        <div>{this.props.widget.type}</div>
+        <div>{widget.type}</div>
       </div>
     );
-  },
+  }
 
   getIcon() {
     switch(this.props.widget.type) {
@@ -51,6 +57,4 @@ var WidgetPreview = React.createClass({
     }
   }
 
-});
-
-module.exports = WidgetPreview;
+}

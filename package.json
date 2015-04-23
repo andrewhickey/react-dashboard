@@ -13,7 +13,7 @@
     "build:gh": "npm run build && node ./build-gh-pages.js && rm -r ./dist"
   },
   "dependencies": {
-    "react": "~0.13.0"
+    "react": "~0.13.2"
   },
   "devDependencies": {
     "ajax": "0.0.4",
@@ -25,6 +25,7 @@
     "baobab": "^1.0.0",
     "baobab-react": "git+https://github.com/Yomguithereal/baobab-react.git",
     "browser-request": "^0.3.3",
+    "classnames": "^1.2.1",
     "css-loader": "^0.9.1",
     "eslint": "^0.17.1",
     "eslint-loader": "^0.7.0",

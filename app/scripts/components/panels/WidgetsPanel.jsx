@@ -1,9 +1,11 @@
 import _ from 'lodash';
 import React, {Component} from 'react';
-import {Branch} from 'baobab-react/wrappers';
+
+import {branch} from '../baobab/higher-order';
 
 import stateTree from '../../stateTree.js';
 import WidgetPreview from '../widgets/WidgetPreview.jsx';
+import classNames from 'classnames';
 
 class WidgetsPanel extends Component {
 
@@ -12,7 +14,7 @@ class WidgetsPanel extends Component {
       return <WidgetPreview widget={widget} key={index} />
     });
 
-    var classes = React.addons.classSet({
+    var classes = classNames({
       panel: true,
       open: this.props.open
     });
@@ -24,20 +26,10 @@ class WidgetsPanel extends Component {
   }
 }
 
-class WidgetsPanelContainer extends Component {
-  render() {
-    console.log(this.context);
-    return (
-      <Branch 
-       cursors={{
-        open: ['ui', 'is_widgets_open'],
-        widgets: ['widgets']
-      }}>
-        <WidgetsPanel />
-      </Branch>
-    );
+module.exports = branch(WidgetsPanel, {
+  cursors: {
+    open:     ['ui', 'is_widgets_open'],
+    widgets:  ['widgets']
   }
-}
-
-module.exports = WidgetsPanelContainer;
+});
 

@@ -24,7 +24,6 @@ var Info = React.createClass({
     UIActions.setReportEditingMode(e.target.value);
   },
   getEditPanel(editingMode, reportCursor) {
-    
     switch(editingMode) {
       case 0: return (
         <div>

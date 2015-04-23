@@ -24,6 +24,7 @@ var defaults = {
     }
   },
   ui: {
+    current_page: "home",
     is_widgets_open: false,
     is_settings_open: false,
     reports: {
