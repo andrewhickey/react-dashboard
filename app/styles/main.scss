@@ -1,0 +1,69 @@
+@import "reset.css";
+@import "colors";
+@import "font-awesome.css";
+@import url("http://fonts.googleapis.com/css?family=Play:400,700");
+@import "shared";
+@import "helper";
+@import "dashboard";
+@import "widgets";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+button,
+input,
+select,
+textarea, {
+  color: $black;
+}
+
+a,
+a:visited {
+  color: $linkColor;
+  text-decoration: none;
+}
+
+a:hover {
+  color: lighten($linkColor, 10%);
+}
+
+html {
+  height: 100%;
+  font-family: 'Play', sans-serif;
+}
+
+body {
+  min-height: 100%;
+}
+
+body {
+  color: $black;
+  font-size: 1em;
+  line-height: 1.5;
+  background-color: white;
+}
+
+header {
+  padding: 1em;
+  nav {
+    float:right;
+    user-select:none;
+  }
+  .nav-item {
+    float:left;
+    margin-left: .5em;
+    a.active {
+      text-decoration:underline;
+    }
+  }
+}
+
+.app-container {
+  height: 100%;
+}
+
+.content {
+  height: 100%;
+}

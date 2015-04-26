@@ -1,0 +1,75 @@
+.json-editor-block {
+  form {
+    display: inline-block;  
+  }
+  ul {
+    margin-left: 20px;  
+    li div {
+      display: inline-block;     
+    }
+  }
+  button {
+    transition: all 0.3s;
+    border: none;
+    background: none;
+    opacity: 0.7;
+    font-size: 0.7em;
+    cursor: pointer;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.json-editor-key::after {
+  content: ":";
+  padding: 0 5px 0 3px;
+}
+
+.json-object-editor {
+  @extend .json-editor-block;
+}
+
+.json-string-editor {
+  @extend .json-editor-block;
+}
+
+.json-array-editor {
+  @extend .json-editor-block;
+}
+
+.json-number-editor {
+  @extend .json-editor-block;
+}
+
+.json-boolean-editor {
+  @extend .json-editor-block;
+}
+
+.json-editor-remove {
+  vertical-align: top;
+}
+
+.json-editor-expanded.json-editor-toggle{
+  transform: rotate(90deg);
+}
+
+.json-editor-expand-enter {
+  transform: scale(0,0); 
+  transition: transform .3s;
+  transform-origin: left top;
+}
+
+.json-editor-expand-enter.json-editor-expand-enter-active {
+  transform: scale(1,1); 
+}
+
+.json-editor-expand-leave {
+  transform: scale(1,1); 
+  transition: transform .3s;
+  transform-origin: left top;
+}
+
+.json-editor-expand-leave.json-editor-expand-leave-active {
+  transform: scale(0,0); 
+}

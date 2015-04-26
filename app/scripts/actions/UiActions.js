@@ -17,9 +17,8 @@ module.exports = {
   },
   gotoPage: function(page) {
     var cursor = stateTree.select('ui', 'current_page');
-    cursor.update({
-      $set: page
-    });
+    cursor.set(page);
+    stateTree.commit();
   },
 
   /** reports **/

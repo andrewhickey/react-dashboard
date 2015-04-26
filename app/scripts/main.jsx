@@ -1,8 +1,7 @@
 "use strict";
 // IMPORTANT: This needs to be first (before any other components)
 // to get around CSS order randomness in webpack.
-require('../styles/main.sass');
-
+require('../styles/main.scss');
 
 // Some ES6+ features require the babel polyfill
 // More info here: https://babeljs.io/docs/usage/polyfill/

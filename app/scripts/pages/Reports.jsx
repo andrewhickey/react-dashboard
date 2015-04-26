@@ -1,21 +1,27 @@
 import _ from "lodash";
-import React from 'react';
+import React, {Component} from 'react';
 
 import UiActions from "../actions/UiActions";
 import ReportEditor from "../components/reports/ReportEditor.jsx";
 import {branch} from '../components/baobab/higher-order';
 
-
-var Reports = React.createClass({
+class Reports extends  Component {
 
   selectReport(reportId, e) {
     UiActions.setActiveReport(reportId);
-  },
+  }
 
   render() {
+    const {ui, reports, currentReport} = this.props;
 
-    const reportList = _.map(this.props.reports, function(report, key) {
-      return <li key={key} onClick={this.selectReport}><Link to="reports.id" params={{reportId: report.id}}>{report.name}</Link></li>;
+    const reportList = _.map(reports, function(report, key) {
+      return (
+        <li key={key} >
+          <a href="#" onClick={this.selectReport.bind(this,report.id)}>
+            {report.name}
+          </a>
+        </li>
+      );
     }.bind(this));
 
     return (
@@ -23,16 +29,19 @@ var Reports = React.createClass({
         <ul>
           {reportList}
         </ul>
-        <RouteHandler />
+        <ReportEditor report={currentReport} />
       </div>
     );
   }
 
-});
+};
 
 module.exports = branch(Reports, {
   cursors: {
     reports: ['reports'],
     ui: ["ui", "reports"]
+  },
+  facets: {
+    currentReport: "currentReport"
   }
 });

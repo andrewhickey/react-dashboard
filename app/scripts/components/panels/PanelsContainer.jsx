@@ -3,9 +3,6 @@ import WidgetsPanel from './WidgetsPanel.jsx';
 import SettingsPanel from './SettingsPanel.jsx';
 
 class PanelsContainer extends Component {
-  contextTypes: {
-    tree: React.PropTypes.object
-  }
 
   render() {
     return (

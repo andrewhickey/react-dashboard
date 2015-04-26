@@ -1,39 +1,27 @@
-import React from 'react';
-import { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 
-var Widget = React.createClass({
+export default class Widget extends Component {
 
-  propTypes: {
-    widget: PropTypes.object.isRequired
-  },
-
-  render() {
-    var component = null;
+  renderChart() {
     switch(this.props.widget.type) {
-      case "line":
-        component = <div className="widget">LineChart</div>;
-        break;
-
-      case "bar":
-        component = <div className="widget">BarChart</div>;
-        break;
-
-      case "pie":
-        component = <div className="widget">PieChart</div>;
-        break;
-
-      case "radar":
-        component = <div className="radar">RadarChart</div>;
-        break;
-
-      default:
-        component = <div className="widget">Widget type not found!</div>;
-        break;
+      case "line":  return <div>LineChart</div>;
+      case "bar":   return <div>BarChart</div>;
+      case "pie":   return <div>PieChart</div>;
+      case "radar": return <div>RadarChart</div>;
+      default:      return <div>Widget type not found!</div>;    
     }
-    
-    return component;
   }
 
-});
+  render() { 
+    return (
+      <div className="widget">
+        {this.renderChart()}
+      </div>
+    );
+  }
 
-module.exports = Widget;
+}
+
+Widget.propTypes = {
+  widget: PropTypes.object.isRequired
+}
