@@ -3,6 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import { configureDragDrop } from 'react-dnd';
 import { DRAGGABLE_TYPES } from '../constants';
 import WidgetActions from '../actions/WidgetActions';
+import DashboardActions from '../actions/DashboardActions';
 import Widget from "./widgets/Widget.jsx";
 import ReactGridLayout from 'react-grid-layout';
 
@@ -28,16 +29,13 @@ const widgetPreviewTarget = {
 )
 
 export default class Dashboard extends Component {
-  onLayoutChange = (currrentLayout, allLayouts) => {
-    
+  onLayoutChange = (currentLayout) => {
+    DashboardActions.updateDashboardLayout( this.props.dashboard.id, currentLayout );
   }
 
   render() {
-    const { canDrop, isOver, connectDropTarget } = this.props;
-    const layout = _.map(this.props.dashboard.widgets, function(widget, index){
-      return {i: index, x: 0, y: 0, w: 1, h: 2};
-    });
-
+    const { canDrop, isOver, connectDropTarget, dashboard } = this.props;
+    const layout = dashboard.layout || [];
     return (
       
       <div 
@@ -46,9 +44,9 @@ export default class Dashboard extends Component {
         <ReactGridLayout 
           className="layout" 
           cols={12} rowHeight={50} 
-          layout={layout} 
+          layout={layout}
           onLayoutChange={this.onLayoutChange}>
-          {_.map(this.props.dashboard.widgets, function(widget, index){
+          {_.map(dashboard.widgets, function(widget, index){
             return (
               <div key={index}>
                 <Widget widget={widget} />
