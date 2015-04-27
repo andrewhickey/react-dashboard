@@ -22,7 +22,7 @@ var Header = React.createClass({
   render() {
     return (
       <header className="clearfix">
-        Dashboard
+        <span style={{"float":"left"}}>Dashboard</span>
         <nav className="clearfix">
           <div className="nav-item"><a href='#' onClick={this._openWidgetsPanel}>Widgets</a></div>
           <div className="nav-item"><a href='#' onClick={this._openSettingsPanel}>Settings</a></div>

@@ -28,15 +28,14 @@ const widgetPreviewTarget = {
 )
 
 export default class Dashboard extends Component {
+  onLayoutChange = (currrentLayout, allLayouts) => {
+    
+  }
 
   render() {
     const { canDrop, isOver, connectDropTarget } = this.props;
     const layout = _.map(this.props.dashboard.widgets, function(widget, index){
-      return (
-        <div key={index} _grid={{x: index, y: 0, w: 1, h: 2}} >
-          <Widget widget={widget} />
-        </div>
-      );
+      return {i: index, x: 0, y: 0, w: 1, h: 2};
     });
 
     return (
@@ -46,8 +45,9 @@ export default class Dashboard extends Component {
         className="dashboard">
         <ReactGridLayout 
           className="layout" 
-          cols={12} rowHeight={30} 
-          layout={layout} >
+          cols={12} rowHeight={50} 
+          layout={layout} 
+          onLayoutChange={this.onLayoutChange}>
           {_.map(this.props.dashboard.widgets, function(widget, index){
             return (
               <div key={index}>
