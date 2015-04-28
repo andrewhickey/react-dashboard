@@ -8,7 +8,7 @@ require('../styles/main.scss');
 // Uncomment the following line to enable the polyfill
 require("babel/polyfill");
 
-import {root, branch} from './components/baobab/higher-order';
+import {root, branch} from 'baobab-react/higher-order';
 import React from 'react';
 import Application from './pages/App';
 import stateTree from './stateTree';
@@ -19,7 +19,7 @@ window.addEventListener("beforeunload", function(e){
 
 var AppWrapper = branch(Application, {
   cursors:{
-    current_page:  ['ui', 'current_page']
+    current_page_id:  ['ui', 'current_page']
   }
 });
 

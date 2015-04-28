@@ -26,10 +26,8 @@ export default class App extends Component{
   
   getCurrentPage() {
     switch(this.props.current_page) {
-      
       case "home": return <Home />;
       case "reports": return <Reports />;
-
     }
   }
 }

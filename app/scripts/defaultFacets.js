@@ -1,8 +1,23 @@
 module.exports = {
 
   // Name of your facet
-  currentReport: {
+  currentPage: {
+    // Cursors bound to your facet
+    // If any of the paths listed below fire
+    // an update, so will the facet.
+    cursors: {
+      id: ['ui', 'current_page'],
+      pages: ['ui', 'pages']
+    },
+    get: function(data) {
+      // 'data' is the value of your mapped cursors
+      const {id, pages} = data;
+      return pages[id];
+    }
+  },
 
+  // Name of your facet
+  currentReport: {
     // Cursors bound to your facet
     // If any of the paths listed below fire
     // an update, so will the facet.

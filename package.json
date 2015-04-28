@@ -22,7 +22,7 @@
     "babel-core": "^4.7.8",
     "babel-eslint": "^2.0.2",
     "babel-loader": "^5.0.0",
-    "baobab": "^1.0.1",
+    "baobab": "^1.0.2",
     "baobab-react": "git+https://github.com/Yomguithereal/baobab-react.git",
     "browser-request": "^0.3.3",
     "classnames": "^1.2.1",

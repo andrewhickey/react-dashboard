@@ -27,20 +27,26 @@ module.exports = {
     /** PAGES **/
     pages: {
       home: {
-        panels: [
-          {
-            type: "settings",
-            isOpen: false
+        name: "Home",
+        panels: {
+          "settings": {
+            isOpen: false,
+            name: "Settings"
           },
-          {
-            type: "widgets",
-            isOpen: true
+          "widgets": {
+            isOpen: true,
+            name: "Widgets"
           }
-        ]  
+        }  
       },
       reports: {
-        panels: [
-        ],
+        name: "Reports",
+        panels: {
+          "settings": {
+            isOpen: false,
+            name: "Settings"
+          }
+        },
         active_report: 1,
         editing_mode: 1
       }

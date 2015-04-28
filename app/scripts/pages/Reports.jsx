@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 
 import UiActions from "../actions/UiActions";
 import ReportEditor from "../components/reports/ReportEditor.jsx";
-import {branch} from '../components/baobab/higher-order';
+import {branch} from 'baobab-react/higher-order';
 
 class Reports extends  Component {
 

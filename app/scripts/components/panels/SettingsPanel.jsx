@@ -1,7 +1,7 @@
 import _ from "lodash";
 import stateTree from "../../stateTree.js";
 import React, {Component} from "react";
-import {branch} from '../baobab/higher-order';
+import {branch} from 'baobab-react/higher-order';
 import classNames from 'classnames';
 
 class WidgetsPanel extends Component {
@@ -18,7 +18,6 @@ class WidgetsPanel extends Component {
 
     var classes = classNames({
       panel: true,
-      open: open
     });
 
     return (
@@ -44,7 +43,6 @@ class WidgetsPanel extends Component {
 
 export default branch(WidgetsPanel, {
   cursors: {
-    open: ["ui", "is_settings_open"],
     settings: ["settings", "lrs"]
   }
 })

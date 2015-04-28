@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React, {Component} from 'react';
 
-import {branch} from '../baobab/higher-order';
+import {branch} from 'baobab-react/higher-order';
 
 import stateTree from '../../stateTree.js';
 import WidgetPreview from '../widgets/WidgetPreview.jsx';
@@ -16,7 +16,6 @@ class WidgetsPanel extends Component {
 
     var classes = classNames({
       panel: true,
-      open: this.props.open
     });
     return (
       <div className={classes}>
@@ -28,7 +27,6 @@ class WidgetsPanel extends Component {
 
 module.exports = branch(WidgetsPanel, {
   cursors: {
-    open:     ['ui', 'is_widgets_open'],
     widgets:  ['widgets']
   }
 });

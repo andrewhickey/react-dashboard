@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {branch} from '../baobab/higher-order';
-import PropTypes from '../baobab/utils/prop-types';
+import {branch} from 'baobab-react/higher-order';
+import PropTypes from 'baobab-react/prop-types';
 
 import JsonEditor from "./query_editors/JsonEditor.jsx";
 import RawEditor from "./query_editors/RawEditor.jsx";

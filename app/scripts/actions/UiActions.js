@@ -5,8 +5,8 @@ module.exports = {
   /** global **/
   togglePanel: function (panelType) {
     var currentPage = stateTree.select('ui', 'current_page').get();
-    var panelsCursor = stateTree.select('ui', 'pages', currentPage, panels);
-    var panels = panelsCursor.get();
+    var panelCursor = stateTree.select('ui', 'pages', currentPage, "panels", panelType);
+    panelCursor.set("isOpen", !panelCursor.get("isOpen"));
   },
   
   gotoPage: function(page) {

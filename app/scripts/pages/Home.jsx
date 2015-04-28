@@ -1,6 +1,6 @@
 import React          from "react";
 import Dashboard      from "../components/Dashboard.jsx";
-import {root, branch} from '../components/baobab/higher-order';
+import {root, branch} from 'baobab-react/higher-order';
 
 var Home = React.createClass({
 
