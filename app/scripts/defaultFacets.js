@@ -1,4 +1,5 @@
 module.exports = {
+
   // Name of your facet
   currentReport: {
 
@@ -6,7 +7,7 @@ module.exports = {
     // If any of the paths listed below fire
     // an update, so will the facet.
     cursors: {
-      id: ['ui', 'reports', 'active_report'],
+      id: ['ui', 'pages', 'reports', 'active_report'],
       reports: ['reports']
     },
     get: function(data) {

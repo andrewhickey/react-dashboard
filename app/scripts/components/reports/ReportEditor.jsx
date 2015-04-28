@@ -83,6 +83,6 @@ class ReportEditor extends Component {
 
 module.exports = branch(ReportEditor, {
   cursors: {
-    ui: ["ui","reports"]
+    ui: ["ui", "pages", "reports"]
   }
 });

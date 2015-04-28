@@ -1,20 +1,14 @@
 import stateTree from "../stateTree";
-import ajax from "ajax";
+import _ from "lodash";
 
 module.exports = {
   /** global **/
-  toggleWidgetsPanel: function () {
-    var cursor = stateTree.select('ui', 'is_widgets_open');
-    cursor.update({
-      $set: !cursor.get()
-    });
+  togglePanel: function (panelType) {
+    var currentPage = stateTree.select('ui', 'current_page').get();
+    var panelsCursor = stateTree.select('ui', 'pages', currentPage, panels);
+    var panels = panelsCursor.get();
   },
-  toggleSettingsPanel: function () {
-    var cursor = stateTree.select('ui', 'is_settings_open');
-    cursor.update({
-      $set: !cursor.get()
-    });
-  },
+  
   gotoPage: function(page) {
     var cursor = stateTree.select('ui', 'current_page');
     cursor.set(page);
@@ -23,16 +17,12 @@ module.exports = {
 
   /** reports **/
   setActiveReport(reportId) {
-    var cursor = stateTree.select("ui", "reports", "active_report");
-    cursor.update({
-      $set: reportId
-    });
+    var cursor = stateTree.select("ui", "pages", "reports", "active_report");
+    cursor.set(reportId);
   },
 
   setReportEditingMode(editingMode) {
-    var cursor = stateTree.select("ui", "reports", "editing_mode");
-    cursor.update({
-      $set: editingMode
-    });
+    var cursor = stateTree.select("ui", "pages", "reports", "editing_mode");
+    cursor.set(editingMode);
   }
 };

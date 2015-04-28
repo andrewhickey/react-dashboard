@@ -6,6 +6,5 @@ module.exports = {
   updateDashboardLayout(dashboardId, nextLayout) {
     const dashboardCursor = stateTree.select("dashboards", dashboardId);
     dashboardCursor.set("layout", nextLayout);
-    console.log("layout updated");
   }
 };

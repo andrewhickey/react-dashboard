@@ -21,12 +21,29 @@ module.exports = {
     }
   },
   ui: {
+    /** GLOBAL **/
     current_page: "reports",
-    is_widgets_open: false,
-    is_settings_open: false,
-    reports: {
-      active_report: 1,
-      editing_mode: 1
+
+    /** PAGES **/
+    pages: {
+      home: {
+        panels: [
+          {
+            type: "settings",
+            isOpen: false
+          },
+          {
+            type: "widgets",
+            isOpen: true
+          }
+        ]  
+      },
+      reports: {
+        panels: [
+        ],
+        active_report: 1,
+        editing_mode: 1
+      }
     }
   },
   settings: {
