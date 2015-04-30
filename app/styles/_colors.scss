@@ -1,11 +1,15 @@
-$color1: rgb(94, 44, 255);
-$color2: rgb(40, 47, 232);
-$color3: rgb(57, 116, 255);
-$color4: rgb(40, 148, 232);
-$color5: rgb(44, 218, 255);
+$color1: rgb(150, 86, 35);
+$color2: rgb(86, 50, 20);
+$color3: rgb(214, 123, 50);
+$color4: rgb(227, 130, 53);
+$color5: rgb(188, 108, 44);
 
 $lightgrey: #999;
 $grey: #eee;
 $black: #222;
 $white: #f7f7f7;
-$linkColor: $black;
+
+$linkColor: $color3;
+$linkHoverColor: $color5;
+$headerColor: lighten($color5, 50%);
+$bodyColor: lighten($color5, 40%);

@@ -13,7 +13,7 @@ class PanelsContainer extends Component {
     }, this);
 
     return (
-      <div>
+      <div className="panels-cont">
         {panels}
       </div>
     );

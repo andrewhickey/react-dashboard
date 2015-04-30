@@ -6,6 +6,7 @@
 @import "helper";
 @import "dashboard";
 @import "widgets";
+@import "panels";
 
 * {
   box-sizing: border-box;
@@ -26,7 +27,7 @@ a:visited {
 }
 
 a:hover {
-  color: lighten($linkColor, 10%);
+  color: $linkHoverColor;
 }
 
 html {
@@ -46,6 +47,7 @@ body {
 }
 
 header {
+  background-color: $headerColor;
   padding: 1em;
   nav {
     float:right;
@@ -66,4 +68,5 @@ header {
 
 .content {
   height: 100%;
+  background-color: $bodyColor;
 }
