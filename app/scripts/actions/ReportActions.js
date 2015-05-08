@@ -1,4 +1,4 @@
-import stateTree from "../stateTree";
+import stateTree from "../data/stateTree";
 import { maxHistoryLength } from "../constants";
 import request from "browser-request";
 
@@ -49,13 +49,12 @@ module.exports = {
           }
         })
       } else {
+        
       }
-
     }
   },
 
 };
-
 
 function stripTrailingSlash(str) {
   if(str.substr(-1) == '/') 

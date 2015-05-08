@@ -1,0 +1,23 @@
+header {
+  @include full;
+  background-color: $headerColor;
+  display: relative;
+
+  nav {
+    text-align: right;
+    @include span(5 last);
+    @extend .clearfix;
+    .nav-item {
+      float: right;
+      margin: 4px;
+    }
+  }
+
+  .dashboard-logo {
+    @include span(7);
+  }
+}
+
+.content {
+  @include full;
+}

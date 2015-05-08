@@ -12,7 +12,7 @@ class Reports extends  Component {
   }
 
   render() {
-    const {ui, reports, currentReport} = this.props;
+    const {reports, currentReport} = this.props;
 
     const reportList = _.map(reports, function(report, key) {
       return (
@@ -25,7 +25,7 @@ class Reports extends  Component {
     }.bind(this));
 
     return (
-      <div>
+      <div className="page">
         <ul>
           {reportList}
         </ul>
@@ -39,7 +39,6 @@ class Reports extends  Component {
 module.exports = branch(Reports, {
   cursors: {
     reports: ['reports'],
-    ui: ["ui", "reports"]
   },
   facets: {
     currentReport: "currentReport"

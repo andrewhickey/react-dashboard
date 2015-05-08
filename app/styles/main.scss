@@ -1,12 +1,24 @@
 @import "reset.css";
-@import "colors";
-@import "font-awesome.css";
+
 @import url("http://fonts.googleapis.com/css?family=Play:400,700");
-@import "shared";
+@import "font-awesome.css";
+@import "susy";
+
+$susy: (
+  global-box-sizing: border-box,
+  columns: 12,  // The number of columns in your grid
+  gutters: 0.25, // The size of a gutter in relation to a single column
+);
+
+@import "colors";
 @import "helper";
+
+@import "header";
+@import "reports";
 @import "dashboard";
 @import "widgets";
 @import "panels";
+
 
 * {
   box-sizing: border-box;
@@ -17,7 +29,6 @@ button,
 input,
 select,
 textarea, {
-  color: $black;
 }
 
 a,
@@ -39,34 +50,14 @@ body {
   min-height: 100%;
 }
 
-body {
-  color: $black;
-  font-size: 1em;
-  line-height: 1.5;
-  background-color: white;
-}
-
-header {
-  background-color: $headerColor;
-  padding: 1em;
-  nav {
-    float:right;
-    user-select:none;
-  }
-  .nav-item {
-    float:left;
-    margin-left: .5em;
-    a.active {
-      text-decoration:underline;
-    }
-  }
-}
-
 .app-container {
-  height: 100%;
+  @include container;
 }
 
-.content {
-  height: 100%;
-  background-color: $bodyColor;
+.active {
+  background-color: $activeColor;
+}
+
+.page {
+  @include full;
 }

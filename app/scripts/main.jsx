@@ -11,7 +11,7 @@ require("babel/polyfill");
 import {root, branch} from 'baobab-react/higher-order';
 import React from 'react';
 import Application from './pages/App';
-import stateTree from './stateTree';
+import stateTree from './data/stateTree';
 
 window.addEventListener("beforeunload", function(e){
   localStorage.state = JSON.stringify(stateTree);

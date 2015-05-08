@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 
 import {branch} from 'baobab-react/higher-order';
 
-import stateTree from '../../stateTree.js';
 import WidgetPreview from '../widgets/WidgetPreview.jsx';
 import classNames from 'classnames';
 

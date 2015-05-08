@@ -20,13 +20,19 @@ module.exports = {
       widgets: []
     }
   },
+
   ui: {
+    startTime: "2015-05-01",
+
     /** GLOBAL **/
     current_page: "reports",
 
     /** PAGES **/
     pages: {
+      
+      /** Home **/
       home: {
+        id: "home",
         name: "Home",
         panels: {
           "settings": {
@@ -34,12 +40,15 @@ module.exports = {
             name: "Settings"
           },
           "widgets": {
-            isOpen: true,
+            isOpen: false,
             name: "Widgets"
           }
         }  
       },
+
+      /** reports **/
       reports: {
+        id: "reports",
         name: "Reports",
         panels: {
           "settings": {
@@ -49,9 +58,24 @@ module.exports = {
         },
         active_report: 1,
         editing_mode: 1
+      },
+
+      /** metrics **/
+      metrics: {
+        id: "metrics",
+        name: "Metrics",
+        panels: {
+          "settings": {
+            isOpen: false,
+            name: "Settings"
+          }
+        },
+        active_metric: 1,
+        editing_mode: 1
       }
     }
   },
+
   settings: {
     lrs : {
       uri: "http://staging.learninglocker.net",
@@ -59,6 +83,7 @@ module.exports = {
       password: "1b9092d81f553bae1d4feb4726c1573dfd87c647"  
     }
   },
+
   reports: {
     1: {
       id: 1,
@@ -66,12 +91,11 @@ module.exports = {
       query: [
         {
           "$match": {
-            "statement.timestamp": {
-              "$gt":"2014-01-01T00:00",
-              "$lt":"2014-01-05T00:00"
-            }
+            "statement.actor.name": "Pete Thorne"
           }
         }
+      ],
+      statements: [
       ]
     },
     2: {
@@ -81,15 +105,25 @@ module.exports = {
         {
           "$match": {
             "statement.timestamp": {
-              "$gt":"2013-01-01T00:00",
+              "$gt":"2015-01-01T00:00",
               "$lt":"2015-06-02T00:00"
             }
           }
         }
-      ]
-      ,
+      ],
       statements: [
+
       ]
     }
+  },
+
+  metrics: {
+    average: {
+      id: "average",
+      name: "Average",
+      transformer: "average"
+    }
   }
+
 };
+

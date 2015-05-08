@@ -6,6 +6,7 @@ import Header from '../components/Header.jsx';
 import PanelsContainer from '../components/panels/PanelsContainer.jsx';
 import Home from './Home';
 import Reports from './Reports';
+import Metrics from './Metrics';
 
 @configureDragDropContext(HTML5Backend)
 export default class App extends Component{
@@ -28,6 +29,7 @@ export default class App extends Component{
     switch(this.props.current_page_id) {
       case "home": return <Home />;
       case "reports": return <Reports />;
+      case "metrics": return <Metrics />;
     }
   }
 }

@@ -1,5 +1,4 @@
 import _ from "lodash";
-import stateTree from "../../stateTree.js";
 import React, {Component} from "react";
 import {branch} from 'baobab-react/higher-order';
 import classNames from 'classnames';

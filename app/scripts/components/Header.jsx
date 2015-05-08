@@ -1,6 +1,7 @@
 import React from 'react';
 import UiActions from '../actions/UiActions';
 import {branch} from 'baobab-react/higher-order';
+import classNames from 'classnames';
 import _ from 'lodash';
 
 var Header = React.createClass({
@@ -19,16 +20,24 @@ var Header = React.createClass({
     const { pages, currentPage } = this.props;
     
     const panelLinks = _.map(currentPage.panels, function(panel, index) {
+      const classes = classNames({
+        'active': panel.isOpen,
+        'nav-item': true
+      });
       return (
-        <div className="nav-item" key={index}>
+        <div className={classes} key={index}>
           <a href='#' onClick={this._openPanel.bind(this, index)}>{panel.name}</a>
         </div>
       );
     },this);
 
     const pageLinks = _.map(pages, function(page, index) {
+      const classes = classNames({
+        'active': currentPage.id === index,
+        'nav-item': true
+      });
       return (
-        <div className="nav-item" key={index}>
+        <div className={classes} key={index}>
           <a href='#' onClick={this._gotoPage.bind(this,index)}>{page.name}</a>
         </div>
       );
@@ -39,12 +48,12 @@ var Header = React.createClass({
     ) : null;
 
     return (
-      <header className="clearfix">
-        <span style={{"float":"left"}}>Dashboard</span>
-        <nav className="clearfix">
-          {panelLinks}
-          {divider}
+      <header>
+        <div className="dashboard-logo">Dashboard</div>
+        <nav>
           {pageLinks}
+          {divider}
+          {panelLinks}
         </nav>
       </header>
     );

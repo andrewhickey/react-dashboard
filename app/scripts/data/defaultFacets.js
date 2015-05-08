@@ -32,6 +32,22 @@ module.exports = {
     }
   },
 
+  // Name of your facet
+  currentMetric: {
+    // Cursors bound to your facet
+    // If any of the paths listed below fire
+    // an update, so will the facet.
+    cursors: {
+      id: ['ui', 'pages', 'metrics', 'active_metric'],
+      metrics: ['metrics']
+    },
+    get: function(data) {
+      // 'data' is the value of your mapped cursors
+      const {metrics, id} = data;
+      return metrics[id];
+    }
+  },
+
   // Other example
   filteredProjects: {
     cursors: {

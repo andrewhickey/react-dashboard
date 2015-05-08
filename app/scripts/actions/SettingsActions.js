@@ -1,4 +1,4 @@
-import stateTree from "../stateTree";
+import stateTree from "../data/stateTree";
 import ajax from 'ajax';
 
 module.exports = {
