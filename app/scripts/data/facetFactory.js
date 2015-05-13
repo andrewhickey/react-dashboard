@@ -5,7 +5,7 @@ export default {
   getReportFacet = _.memoize(function(reportId, metricId) {
     return tree.createFacet({
       cursors: {
-        id: ['ui', 'current_page'],
+        id: ['reports', ''],
         report: ['statements', 'pages']
       },
       get: function(data) {
